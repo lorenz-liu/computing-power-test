@@ -15,7 +15,7 @@ def heavy_computation(n):
 # Function to measure single-threaded computation power
 def measure_single_threaded_power():
     start_time = time.time()
-    heavy_computation(500)
+    heavy_computation(5000)
     end_time = time.time()
     return end_time - start_time
 
@@ -24,7 +24,7 @@ def measure_single_threaded_power():
 def measure_multi_threaded_power():
     start_time = time.time()
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
-    pool.map(heavy_computation, [500] * multiprocessing.cpu_count())
+    pool.map(heavy_computation, [5000] * multiprocessing.cpu_count())
     pool.close()
     pool.join()
     end_time = time.time()
